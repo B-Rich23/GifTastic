@@ -51,13 +51,14 @@ console.log(slamDunks);
 
 
  // Event listener for all button elements
-    $("#button").on("click", function() {
+    $("button").on("click", function() {
       // In this case, the "this" keyword refers to the button that was clicked
       var dunker = $(this).attr("data-person");
+      console.log(this);
 
       // Constructing a URL to search Giphy for the name of the person who said the quote
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        dunker + "slam+dunks" + "&api_key=D9qYKN8gzFg59ImLbNl2v4OW611JJq7e&limit=10";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dunker + "+best+slam+dunks" + "&api_key=D9qYKN8gzFg59ImLbNl2v4OW611JJq7e&limit=10";
+        console.log(queryURL);
 
       // Performing our AJAX GET request
       $.ajax({
@@ -67,6 +68,7 @@ console.log(slamDunks);
 
         // After the data comes back from the API
         .then(function(response) {
+        	console.log(response);
           // Storing an array of results in the results variable
           var results = response.data;
 
