@@ -1,5 +1,5 @@
 // Global variables
-var slamDunks = ["kobe bryant", "shawn kemp", "vince carter"];
+var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
 console.log(slamDunks);
 
 
@@ -86,20 +86,60 @@ console.log(slamDunks);
               // Creating a paragraph tag with the result item's rating
               var p = $("<p>").text("Rating: " + rating);
 
+// <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" 
+// data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
+
+
+
               // Creating an image tag
               var personImage = $("<img>");
+              boosties = results[i].images.fixed_height_still.url;
+              personImage.addClass("gif");
+              var still = results[i].images.fixed_height_still.url;
+              var moving = results[i].images.fixed_height.url;
 
-              // Giving the image tag an src attribute of a proprty pulled off the
+              // Giving the image tag an src attribute of a property pulled off the
               // result item
-              personImage.attr("src", results[i].images.fixed_height.url);
+              personImage.attr("src", still);
+              personImage.attr("data-state", "still");
+              personImage.attr("data-still", still);
+              personImage.attr("src", moving);
+              console.log(personImage);
 
-              // Appending the paragraph and personImage we created to the "gifDiv" div we created
+               // Appending the paragraph and personImage we created to the "gifDiv" div we created
               gifDiv.append(p);
               gifDiv.append(personImage);
 
-              // Prepending the gifDiv to the "#gifs-appear-here" div in the HTML
+              // Prepending the gifDiv to the "#gifs-please" div in the HTML
               $("#gifs-please").prepend(gifDiv);
+
+              
+
+		     // On click function to intialize gif state changes
+		     $(document).on("click","img", function clickGif() {
+		     			      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+			      var state = $(this).attr("data-state");
+			      console.log(this);
+			      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+			      // Then, set the image's data-state to animate
+			      // Else set src to the data-still value
+			      if (state === "still") {
+			        $(this).attr("src", $(this).attr("data-moving"));
+			        $(this).attr("data-state", "moving");
+			      } else {
+			        $(this).attr("src", $(this).attr("data-still"));
+			        $(this).attr("data-state", "still");
+			      }
+
+			  }); 
+
+
+             
+
             }
           }
         });
     });
+
+
+    
