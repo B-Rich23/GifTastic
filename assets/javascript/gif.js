@@ -1,6 +1,16 @@
+var str = 'a b c';
+var replaced = str.split(' ').join('+');
+console.log(replaced);
+
+
 // Global variables
 var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
-console.log(slamDunks);
+
+// For loop that removes white space between player names and replaces it with a plus operator
+for(i = 0; i < slamDunks.length; i++) { 
+var spaceJam = slamDunks[i].split(' ').join('+');
+console.log(spaceJam);
+}
 
 
 // Function for displaying topics data
@@ -78,13 +88,14 @@ console.log(slamDunks);
             // Only taking action if the photo has an appropriate rating
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
               // Creating a div with the class "item"
-              var gifDiv = $("<div class='item'>");
+              var gifDiv = $("<div>");
 
               // Storing the result item's rating
               var rating = results[i].rating;
 
               // Creating a paragraph tag with the result item's rating
               var p = $("<p>").text("Rating: " + rating);
+
 
 // <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" 
 // data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
@@ -93,7 +104,7 @@ console.log(slamDunks);
 
               // Creating an image tag
               var personImage = $("<img>");
-              boosties = results[i].images.fixed_height_still.url;
+              // boosties = results[i].images.fixed_height_still.url;
               personImage.addClass("gif");
               var still = results[i].images.fixed_height_still.url;
               var moving = results[i].images.fixed_height.url;
@@ -111,15 +122,16 @@ console.log(slamDunks);
               gifDiv.append(personImage);
 
               // Prepending the gifDiv to the "#gifs-please" div in the HTML
-              $("#gifs-please").prepend(gifDiv);
-
-              
-
+           }  $("#gifs-please").prepend(gifDiv);
+		};
+      }) 
+    });
 		     // On click function to intialize gif state changes
 		     $(document).on("click","img", function clickGif() {
 		     			      // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
 			      var state = $(this).attr("data-state");
 			      console.log(this);
+
 			      // If the clicked image's state is still, update its src attribute to what its data-animate value is.
 			      // Then, set the image's data-state to animate
 			      // Else set src to the data-still value
@@ -136,10 +148,6 @@ console.log(slamDunks);
 
              
 
-            }
-          }
-        });
-    });
-
-
     
+
+
