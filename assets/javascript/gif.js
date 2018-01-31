@@ -70,7 +70,7 @@ var slamDunks = ["kobe bryant", "michael jordan"];
       console.log(this);
 
       // Constructing a URL to search Giphy for the name of the person who said the quote
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dunker + "+best+slam+dunks" + "&api_key=D9qYKN8gzFg59ImLbNl2v4OW611JJq7e&limit=10";
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dunker + "+top+10+slam+dunks" + "&api_key=D9qYKN8gzFg59ImLbNl2v4OW611JJq7e&limit=10";
         console.log(queryURL);
 
       // Performing our AJAX GET request
