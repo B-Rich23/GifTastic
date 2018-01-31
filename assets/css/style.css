@@ -1,0 +1,15 @@
+
+button {
+	background-color: #FFC300;
+	color: white;
+	font-style: strong;
+}
+
+#button {
+	background-color: gray;
+	color: white;
+}
+
+form {
+	color: #008BFF;
+}

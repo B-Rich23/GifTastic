@@ -4,7 +4,7 @@ console.log(replaced);
 
 
 // Global variables
-var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
+var slamDunks = ["kobe bryant", "michael jordan"];
 
 // // For loop that removes white space between player names and replaces it with a plus operator
 // for(i = 0; i < slamDunks.length; i++) {
@@ -20,15 +20,14 @@ var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
 // Function for displaying topics data
       function renderButtons() {
 
-        // Deleting the movie buttons prior to adding new movie buttons
+        // Deleting the player buttons prior to adding new movie buttons
         // (this is necessary otherwise we will have repeat buttons)
         $("#dunker").empty();
 
         // Create a button for each index of the array
 		for(i = 0; i < slamDunks.length; i++) {
 
-          // Then dynamicaly generating buttons for each movie in the array.
-          // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+          // Then dynamicaly generating buttons for each movie in the array
           var newButton = $("<button>");
           // Adding a class
           newButton.addClass("baller");
@@ -41,31 +40,28 @@ var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
         }
       }
 
-      renderButtons();
-
-      // // This function handles events where one button is clicked
-      // $("#add-movie").on("click", function(event) {
-      //   // event.preventDefault() prevents the form from trying to submit itself.
-      //   // We're using a form so that the user can hit enter instead of clicking the button if they want
-      //   event.preventDefault();
-
-      //   // This line will grab the text from the input box
-      //   var movie = $("#movie-input").val().trim();
-      //   // The movie from the textbox is then added to our array
-      //   movies.push(movie);
-      //   $("#movie-input").val('');
-
-      //   // calling renderButtons which handles the processing of our movie array
-      //   renderButtons();
-      // });
-
-      // // Calling the renderButtons function at least once to display the initial list of movies
       // renderButtons();
+
+      // This function handles events where one button is clicked
+      $("#button").on("click", function(event) {
+        // event.preventDefault() prevents the form from trying to submit itself.
+        // We're using a form so that the user can hit enter instead of clicking the button if they want
+        event.preventDefault();
+
+        // This line will grab the text from the input box
+        var player = $("#userinput").val().trim();
+        // The player from the textbox is then added to our array
+        slamDunks.push(player);
+        $("#userinput").val('');
+
+        // calling renderButtons which handles the processing of our slamDunks array
+        renderButtons();
+      });
 
 
 
  // Event listener for all button elements
-    $("button").on("click", function() {
+    $(".baller").on("click", function() {
       // In this case, the "this" keyword refers to the button that was clicked
       var dunker = $(this).attr("data-person");
       console.log(this);
@@ -99,11 +95,6 @@ var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
 
               // Creating a paragraph tag with the result item's rating
               var p = $("<p>").text("Rating: " + rating);
-
-
-// <img src="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" data-still="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200_s.gif" 
-// data-animate="https://media1.giphy.com/media/3o85xkQpyMlnBkpB9C/200.gif" data-state="still" class="gif">
-
 
 
               // Creating an image tag
