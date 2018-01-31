@@ -6,11 +6,15 @@ console.log(replaced);
 // Global variables
 var slamDunks = ["kobe bryant", "michael jordan", "vince carter"];
 
-// For loop that removes white space between player names and replaces it with a plus operator
-for(i = 0; i < slamDunks.length; i++) { 
-var spaceJam = slamDunks[i].split(' ').join('+');
-console.log(spaceJam);
-}
+// // For loop that removes white space between player names and replaces it with a plus operator
+// for(i = 0; i < slamDunks.length; i++) {
+// var hangTime = [];
+
+// var spaceJam = slamDunks[i].split(' ').join('+')];
+// console.log(spaceJam[i]);
+// hangTime.push(spaceJam[]);
+// console.log(hangTime);
+// }
 
 
 // Function for displaying topics data
@@ -122,7 +126,8 @@ console.log(spaceJam);
               gifDiv.append(personImage);
 
               // Prepending the gifDiv to the "#gifs-please" div in the HTML
-           }  $("#gifs-please").prepend(gifDiv);
+           $("#gifs-please").prepend(gifDiv);
+            }
 		};
       }) 
     });
