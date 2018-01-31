@@ -64,7 +64,7 @@ var slamDunks = ["kobe bryant", "michael jordan"];
 
 
  // Event listener for all button elements
-    $(".baller").on("click", function() {
+    $(document).on("click", ".baller", function() {
       // In this case, the "this" keyword refers to the button that was clicked
       var dunker = $(this).attr("data-person");
       console.log(this);
